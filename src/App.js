@@ -1,8 +1,8 @@
 import React, { useRef } from "react";
-import MultiInputSample from "./InputSample";
-import UserList from './sampleArr';
+import UserList from './UserArr';
 
-const usersArr = [
+function App() {
+const users = [
   {
       id :1,
       userName : "velopert",
@@ -30,13 +30,9 @@ const onCreate = () =>{
   nextId.current += 1;          // 5가 되는데 회면이 리로드 되어도 4가 아니라 5가 기억되게 한다.
   // nextId.current 값이 바뀐다고해서 화면이 리로드 되지 않는다.
 }
-
-function App() {  
   return (
-      <>   
-          <UserList />
-      </>
+    <UserList usersArr={users} />
   );
-}
 
+}
 export default App;
