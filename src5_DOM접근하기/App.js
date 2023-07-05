@@ -1,13 +1,12 @@
 import React from "react";
-import Counter from "./Counter";
-import Hello from "./Hello";
+import MultiInputSample from "./InputSample";
 
+
+// input상태 관리하기
 function App() {  
-  
   return (
       <>   
-          <Counter />
-          <Hello />
+          <MultiInputSample />
       </>
   );
 }

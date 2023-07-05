@@ -5,6 +5,7 @@ function SingleInputSample() {
 
   const [text1, setText] = useState('');
   // 기본값 공백으로 설정
+  // text1 값은 아래 return 에서 사용함.
 
 
   const onChangeFunc = (event) =>{
@@ -13,7 +14,7 @@ function SingleInputSample() {
     // event.target 은 이벤트발생한 돔(input 태그)에 대한 정보를 가지고 있음.
     //console.log(event.target.value);
     // input 값 출력하기
-    setText(event.target.value);
+    setText(ev ent.target.value);
   };
 
   const onReset = () =>{
@@ -47,11 +48,14 @@ function MultiInputSample() {
     nickname : '',
   });
 
+  
+  // inputs 에서 구조화할당으로 뽑기
   const {name, nickname} = Inputs;
 
   const onChangeFunc = (event) =>{
     // 여러개의 input 태그 컨트롤하기
-    // inputs 에서 구조화할당으로 뽑기
+    // event 객체에는 onChangeFunc 함수가 적용된 태그의 정보를 가지고 있다.
+    // 따라서 return 할 때 주는 input 태그에 적용했기에, 해당 input이 가지는 정보를 지닌다.
     const {name, value} = event.target;
 
     console.log(event.target.name);
