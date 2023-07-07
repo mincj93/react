@@ -3,6 +3,7 @@ import UserList from './UserArr';
 import CreateUser from "./CreateUser";
 
 function App() {
+//input 두개의 기본 상태값 설정
 const [inputs, setInputs] = useState({
   username : '',
   email : '',
@@ -21,38 +22,40 @@ const onChange = e =>{
 
 const [users, setUsers] = useState([
   {
-      userid :1,
+      id :1,
       username : "velopert",
       email: 'public.velopert@gmail.com',
       age: 19
   },
   {
-    userid :2,
+      id :2,
       username : "tester",
       email: 'tester@example.com',
       age: 23
   },
   {
-    userid :3,
+      id :3,
       username : "liz",
       email: 'liz@example.com',
       age: 35
   }
 ]);
 
-const nextId = useRef(4);
+const nextId = useRef(4); // 1. useRef 를 이용해서 특정 값을 기억하게 하는것.
+//const nextId = useRef(users.length);
 
 // 유저 생성 함수
 const onCreate = () =>{
 
   const user = {
-    userid : nextId.current,
-    // userid : nextId.current+1,
+    id : nextId.current,
+    // id : nextId.current+1,
     username,
     email,
     age,
   }
 
+  //setUsers([...users, user]); // 스프레드함수로 기존 users 를 복사후, 새로운 user 를 뒤에 추가.
   setUsers(users.concat(user));
 
   setInputs({
@@ -60,20 +63,10 @@ const onCreate = () =>{
     email:'',
     age:0,
   });
-  
-  nextId.current += 1;
-}; // // 유저 생성 함수 끝
-
-const onRemove = userid => {
-  console.log(users.filter(user => user.userid !== userid));
-  setUsers(users.filter(user => user.userid !== userid));
-  // setUsers 를 이용해서 filter 로 새로 생성된 배열들을 기본값으로 가진다.
-  
-  // filter 함수의 역할? 
-  // >> users객체안에 있는 각각의 user 가 가진 userid 값을 
-  // 삭제버튼을 통해 가지고온 userid 값과 비교한다.
-  // 따라서 user.userid !== userid 조건에 맞는 애들만 골라내서 "새로운 배열을" return 한다.
-};
+  console.log(nextId.current);  // 4가 출력된다.
+  nextId.current += 1;          // 5가 되는데 회면이 리로드 되어도 4가 아니라 5가 기억되게 한다.
+  // nextId.current 값이 바뀐다고해서 화면이 리로드 되지 않는다.
+} // // 유저 생성 함수 끝
 
   return (
     <>
@@ -84,8 +77,7 @@ const onRemove = userid => {
         onChange={onChange} 
         onCreate={onCreate}
       />
-      <UserList usersArr={users} onRemove = {onRemove} />
-      {/* onRemove로 삭제 함수 장착 */}
+      <UserList usersArr={users} />
     </>
   );
 
