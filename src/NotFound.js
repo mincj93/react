@@ -1,9 +1,38 @@
 import React from 'react';
+import { motion } from "framer-motion"; // 화면전환애니메이션
+
     function NotFound() {
+        var animateVal = [
+            {
+                animate: {x:100},
+                transition : { duration: 3, type: "spring" }
+            },
+            {
+                animate: {y:100},
+                transition : { duration: 3, type: "spring" }
+            },
+            {
+                initial:{ opacity: 0 },
+                animate: {x:100, y:100},
+                transition : { duration: 3, type: "spring" }
+            }
+    
+        ];
+        var random_index = Math.floor(Math.random() * animateVal.length);
+        var randomAni = animateVal[random_index];
+
+
         return (
             <>
-                <h1>페이지 없음</h1>
+            <motion.div
+            animate={randomAni.animate}
+			transition={randomAni.transition}
+			initial={randomAni.transition}
+            >
+                <h1>안녕하세요. NotFoundPage</h1>
+            </motion.div>
             </>
+
         );
     }
 

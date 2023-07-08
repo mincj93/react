@@ -1,9 +1,35 @@
 import React from 'react';
+import { motion } from "framer-motion"; // 화면전환애니메이션
 
 const Product = (props) => {
+    var animateVal = [
+		{
+			animate: {x:100},
+			transition : { duration: 3, type: "spring" }
+		},
+		{
+			animate: {y:100},
+			transition : { duration: 3, type: "spring" }
+		},
+		{
+			initial:{ opacity: 0 },
+			animate: {x:100, y:100},
+			transition : { duration: 3, type: "spring" }
+		}
+
+	];
+	var random_index = Math.floor(Math.random() * animateVal.length);
+	var randomAni = animateVal[random_index];
+
     return (
         <>
-            <h3>상품 페이지입니다.</h3>
+            <motion.div
+			animate={randomAni.animate}
+			transition={randomAni.transition}
+			initial={randomAni.transition}
+			>
+			<h1>안녕하세요. ProductPage.</h1>
+			</motion.div>
         </>
     );
 }
