@@ -20,7 +20,7 @@ function Counter() {
           <p>{num}</p>
           <button onClick={increase}>up</button>
           <button onClick={decrease}>down</button>
-          {/* 함수명을 넣는것이지 호출을하는것이 아니다. increase() 이렇게 하면 안됨*/}
+          {/* 함수명을 넣는것이지 호출을하는것이 아니다. onClick={increase()} 이렇게 하면 안됨!! */}
       </>
   );
 }
