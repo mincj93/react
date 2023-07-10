@@ -6,16 +6,16 @@ const Main = (props) => {
 	var animateVal = [
 		{
 			animate: {x:100},
-			transition : { duration: 3, type: "spring" }
+			transition : { duration: 2, type: "spring" }
 		},
 		{
 			animate: {y:100},
-			transition : { duration: 3, type: "spring" }
+			transition : { duration: 2, type: "spring" }
 		},
 		{
 			initial:{ opacity: 0 },
 			animate: {x:100, y:100},
-			transition : { duration: 3, type: "spring" }
+			transition : { duration: 2, type: "spring" }
 		}
 
 	];

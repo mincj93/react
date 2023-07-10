@@ -5,16 +5,19 @@ import { motion } from "framer-motion"; // 화면전환애니메이션
         var animateVal = [
             {
                 animate: {x:100},
-                transition : { duration: 3, type: "spring" }
+                transition : { duration: 2, type: "spring" }
             },
             {
                 animate: {y:100},
-                transition : { duration: 3, type: "spring" }
+                transition : { duration: 2, type: "spring" }
             },
             {
                 initial:{ opacity: 0 },
                 animate: {x:100, y:100},
-                transition : { duration: 3, type: "spring" }
+                transition : { duration: 2, type: "spring" }
+            },
+            {
+                animate: {x: [0, 100, 0], y: [0, 100, 0] }
             }
     
         ];
