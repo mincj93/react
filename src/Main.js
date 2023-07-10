@@ -1,21 +1,25 @@
 import React from 'react';
 import { motion } from "framer-motion"; // 화면전환애니메이션
+import Nav from './Nav';
 
-const Main = (props) => {
+const Main = ({navVal}) => {
+
+
+	console.log(navVal);
 
 	var animateVal = [
 		{
 			animate: {x:100},
-			transition : { duration: 3, type: "spring" }
+			transition : { duration: 2, type: "spring" }
 		},
 		{
 			animate: {y:100},
-			transition : { duration: 3, type: "spring" }
+			transition : { duration: 2, type: "spring" }
 		},
 		{
 			initial:{ opacity: 0 },
 			animate: {x:100, y:100},
-			transition : { duration: 3, type: "spring" }
+			transition : { duration: 2, type: "spring" }
 		}
 
 	];
@@ -25,6 +29,7 @@ const Main = (props) => {
 
 	return (
 		<>
+			<Nav navVal={navVal}/>
 			<motion.div
 			animate={randomAni.animate}
 			transition={randomAni.transition}
