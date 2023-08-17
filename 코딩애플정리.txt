@@ -158,7 +158,7 @@ arr1.map(콜백함수)
 
 배열객체의 map 함수 특징 1.
 arr1.map(function(){
-    console.log(1);     // arr1 의 자료 개수만큼 반복실행시킴. ★★★★★★
+    console.log(1);     // arr1 의 자료 개수만큼 이 콜백함수를 반복실행시킴. ★★★★★★
 });
 
 배열객체의 map 함수 특징 2.
