@@ -21,13 +21,13 @@ function MemberMain() {
     <div className="App" style={{ "backgroundColor": "aqua", "width": "100%" }}>
       <h1>Fruite Main</h1>
       <input placeholder="입력" onChange={fnc_setMsg}></input>
-      <button type="submit" onClick={fnc_setSessMsg}></button>
+      <button type="submit" onClick={fnc_setSessMsg}>세션메시지저장</button>
       <h2>세션메시지 : {message}</h2>
-      <h1><a href="/fruitMain"></a></h1>
-      <h1><a href="/memberMain"></a></h1>
-      <h1><a href="/productMain"></a></h1>
-      <h1><a href="/moduleviewerMain"></a></h1>
-      <li><Link to="/memberMain">memberMain</Link></li>
+      <h1><a href="/fruit_build">fruit</a></h1>
+      <h1><a href="/member_build">member</a></h1>
+      <h1><a href="/product_build">product</a></h1>
+      <h1><a href="/moduleviewer_build">moduleviewer</a></h1>
+      <li><Link to="/member_build">memberMain</Link></li>
       <li><Link to="/memReg">member Register</Link></li>
       <li><Link to="/memDel">member Delete</Link></li>
       <li><Link to="/memUpdate">member Update</Link></li>

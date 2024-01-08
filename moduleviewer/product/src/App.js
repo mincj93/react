@@ -21,7 +21,7 @@ function App() {
       <CSSTransition key={location.pathname} classNames="page" timeout={700}>
         {/* classNames 로 적용해야 css 에서 class 명을 찾을 수 있다. className 이 아님. s가 붙었는지 확인하기. */}
         <Routes>
-          <Route path="productMain" element={<ProductMain />} />
+          <Route path="product_build" element={<ProductMain />} />
           <Route path="productReg" element={<ProductReg />} />
           <Route path="productDel" element={<ProductDel />} />
           <Route path="productUpdate" element={<ProductUpdate />} />
