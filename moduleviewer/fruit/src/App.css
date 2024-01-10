@@ -1,63 +1,50 @@
 .App {
+  text-align: left;
+}
+
+.title {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+ul {
+  list-style: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.menu li {
+  display: inline;
+  padding-left: 10px;
+  
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.pgMenu li {
+  display: inline;
+  padding-right: 10px;
+  font-size: 20px;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 
 /* css-transition 관련 css 시작 */
 
-.page-enter{
+.page-enter {
   position: absolute;
   z-index: 1;
   transform: translateX(100%);
 }
 
-.page-enter-active{
+.page-enter-active {
   position: absolute;
   transform: translateX(0);
   transition: transform 1000ms;
 }
 
-.page-exit{
+.page-exit {
   position: absolute;
   z-index: 0;
   transform: translateX(0);
 }
 
-.page-exit-active{
+.page-exit-active {
   position: absolute;
   transform: translateX(-100%);
   transition: transform 1000ms;

@@ -12,23 +12,28 @@ import Apple from "./pages/Apple";
 import Banana from "./pages/Banana";
 import Grape from "./pages/Grape";
 
+// common 컴포넌트 import
+import Menubar from "../../common/components/Menubar"
+
 function App() {
 
   const location = useLocation();
-
+  
   return (
-    <TransitionGroup>
-      <CSSTransition key={location.pathname} classNames="page" timeout={700}>
-        {/* classNames 로 적용해야 css 에서 class 명을 찾을 수 있다. className 이 아님. s가 붙었는지 확인하기. */}
-        <Routes>
-        
-          <Route path="fruit_build" element={<FruitMain />} />
-          <Route path="apple" element={<Apple />} />
-          <Route path="banana" element={<Banana />} />
-          <Route path="Grape" element={<Grape />} />
-        </Routes>
-      </CSSTransition>
-    </TransitionGroup>
+    <>
+      <Menubar />
+      <TransitionGroup>
+
+        <CSSTransition key={location.pathname} classNames="page" timeout={700}>
+          <Routes>
+            <Route path="fruit_build" element={<FruitMain />} />
+            <Route path="apple" element={<Apple />} />
+            <Route path="banana" element={<Banana />} />
+            <Route path="Grape" element={<Grape />} />
+          </Routes>
+        </CSSTransition>
+      </TransitionGroup>
+    </>
   );
 }
 

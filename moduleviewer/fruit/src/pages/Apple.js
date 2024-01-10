@@ -1,11 +1,18 @@
+import '../App.css';
+
 // 필수 모듈 import
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 // 부가 모듈 import
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
+
+// 파일 import
+import { useScript } from "../hooks";
 
 
 function Apple() {
+
 
   const [message, setMessage] = useState(sessionStorage.getItem('sessMsg'));
 
@@ -18,20 +25,30 @@ function Apple() {
   }
 
   return (
-    <div className="App" style={{ "backgroundColor": "aqua", "width": "100%" }}>
-      <h1>Apple</h1>
-      <input placeholder="입력" onChange={fnc_setMsg}></input>
-      <button type="submit" onClick={fnc_setSessMsg}>세션메시지저장</button>
-      <h2>세션메시지 : {message}</h2>
-      <h1><a href="/fruit_build">fruit</a></h1>
-      <h1><a href="/member_build">member</a></h1>
-      <h1><a href="/product_build">product</a></h1>
-      <h1><a href="/moduleviewer_build">moduleviewer</a></h1>
-      <li><Link to="/fruit_build">fruitMain</Link></li>
-      <li><Link to="/apple">apple</Link></li>
-      <li><Link to="/banana">banana</Link></li>
-      <li><Link to="/grape">grape</Link></li>
-    </div>
+    <>
+      <div className="App" style={{ "backgroundColor": "aqua", "width": "100%" }}>
+        <div className="title">
+          <h1>Apple</h1>
+        </div>
+        <div className='content' style={{ "backgroundColor": "aqua", "paddingLeft": "20px", "paddingRight": "20px", "textAlign": "left" }}>
+
+          <h2>세션메시지 : {message}</h2>
+          <input placeholder="입력" onChange={fnc_setMsg}></input>
+          <button type="submit" onClick={fnc_setSessMsg}>세션메시지저장</button>
+
+
+          {/* classNames 로 적용해야 css 에서 class 명을 찾을 수 있다. className 이 아님. s가 붙었는지 확인하기. */}
+          <h4>페이지 목록</h4>
+          <ul className='pgMenu'>
+            <li><Link to="/fruit_build">fruitMain</Link></li>
+            <li><Link to="/apple">apple</Link></li>
+            <li><Link to="/banana">banana</Link></li>
+            <li><Link to="/grape">grape</Link></li>
+          </ul>
+        </div>
+
+      </div>
+    </>
   );
 }
 

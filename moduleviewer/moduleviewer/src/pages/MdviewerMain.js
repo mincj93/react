@@ -5,6 +5,11 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 
+// 리액트에서 nodejs 전용 fs 모듈 사용하는 방법?
+// https://gyuha.tistory.com/542 참고
+
+
+
 function ModuleviewerMain() {
 
   const [message, setMessage] = useState(sessionStorage.getItem('sessMsg'));
