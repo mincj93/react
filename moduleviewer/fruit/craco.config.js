@@ -29,6 +29,7 @@ src 디렉토리 외부(프로젝트 외부)에 있는 js 파일을 사용하기
 module.exports = {
     webpack: {
         configure: webpackConfig => {
+            target: 'electron-renderer'
             const scopePluginIndex =
                 webpackConfig.resolve.plugins.findIndex(
                     ({ constructor }) =>
