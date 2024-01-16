@@ -15,7 +15,7 @@ app.get('/', (req, res) => {
 
 app.get('/getFileList', (req, res) => {
     fs.readdir(fruitComponentPath, function (error, filelist) {
-        console.log(filelist[0]);
+        console.log('서버 getFileList');
         res.send(filelist);
     });
 })

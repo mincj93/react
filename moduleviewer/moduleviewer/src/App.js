@@ -3,7 +3,7 @@ import React, { useState, useEffect, Suspense, lazy } from "react";
 import './App.css';
 
 // 부가 모듈 import
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { Route, Routes, useLocation, useParams } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import axios from "axios";
 
@@ -26,45 +26,48 @@ import ModuleviewerMain from "./pages/MdviewerMain";
 3. useState 를 통해 불러온 컴포넌트들을 관리하여 화면에 보여주기.
 */
 
+const lg = console.log;
+
 
 function App() {
+
+  const location = useLocation()
 
   // 동적으로 파일 목록 관리
   const [fileList, setFileList] = useState([]);
 
-  const fnc_getFileList = () => {
+  function fnc_getFileList() {
 
     axios.get('http://localhost:3300/getFileList')
       .then((resFileList) => {
-        let resData = resFileList.data;
-        console.log("resData ==",resData);
-        setFileList(resData);
-        
+
+        let fileListCopy = [...fileList]; // 원본 카피
+        fileListCopy = resFileList.data; // 통신 후 받아온 파일명 리스트
+
+        setFileList(fileListCopy);
+
       })
       .catch(() => {
-        // 여기에 오류를 써준다.
-        console.log('파일목록 조회 실패');
+        lg('파일목록 조회 실패');
       });
 
-      
   }
+
 
   useEffect(() => {
     fnc_getFileList();
-    console.log("fileList ==",fileList);
-  }, [])
+  }, []) // 컴포넌트 마운트 시 한 번 실행
 
-  const location = useLocation();
 
   return (
-    <TransitionGroup>
-      <CSSTransition key={location.pathname} classNames="page" timeout={700}>
-        {/* classNames 로 적용해야 css 에서 class 명을 찾을 수 있다. className 이 아님. s가 붙었는지 확인하기. */}
-        <Routes>
-          <Route path="moduleviewer_build" element={<ModuleviewerMain />} />
-        </Routes>
-      </CSSTransition>
-    </TransitionGroup>
+      <TransitionGroup>
+        <CSSTransition key={location.pathname} classNames="page" timeout={700}>
+          {/* classNames 로 적용해야 css 에서 class 명을 찾을 수 있다. className 이 아님. s가 붙었는지 확인하기. */}
+          <Routes>
+            <Route path="/moduleviewer_build" element={<ModuleviewerMain pgList={fileList} />} />
+          </Routes>
+        </CSSTransition>
+      </TransitionGroup>
   );
 }
 
