@@ -7,32 +7,30 @@ import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
-// 파일 import
-import { useScript } from "../hooks";
 
 
-function Apple() {
+function Grape() {
 
 
-  // const [message, setMessage] = useState(sessionStorage.getItem('sessMsg'));
+  const [message, setMessage] = useState(sessionStorage.getItem('sessMsg'));
 
   const fnc_setMsg = (e) => {
     setMessage(e.target.value);
   }
 
   const fnc_setSessMsg = () => {
-    // sessionStorage.setItem('sessMsg', message);
+    sessionStorage.setItem('sessMsg', message);
   }
 
   return (
     <>
       <div className="App" style={{ "backgroundColor": "aqua", "width": "100%" }}>
         <div className="title">
-          <h1>Apple</h1>
+          <h1>Grape</h1>
         </div>
         <div className='content' style={{ "backgroundColor": "aqua", "paddingLeft": "20px", "paddingRight": "20px", "textAlign": "left" }}>
 
-          {/* <h2>세션메시지 : {message}</h2> */}
+          <h2>세션메시지 : {message}</h2>
           <input placeholder="입력" onChange={fnc_setMsg}></input>
           <button type="submit" onClick={fnc_setSessMsg}>세션메시지저장</button>
 
@@ -52,4 +50,4 @@ function Apple() {
   );
 }
 
-export default Apple
+export default Grape;

@@ -54,20 +54,48 @@ function App() {
   }
 
 
+  // 동적 임포트
+  // const fnc_dynamicImport = async (componentName) => {
+  //   // let path = `../../../fruit/src/pages/${componentName}`
+  //   let path = `../../../fruit/src/pages/${componentName}.js`;
+  //   lg('path = ', path)
+  //   // await import(path)
+  //   //   .then(
+  //   //     ({ default: componentName }) => {
+  //   //       componentName()
+  //   //     })
+  //   //   .catch(
+  //   //     lg('fnc_dynamicImport 오류남')
+  //   //   )
+
+  //   // 2번째 방법
+  //   try {
+  //     let obj = await import(path);
+
+  //     // let comp = obj.default;
+  //     // comp();
+  //   } catch (error) {
+  //     lg('fnc_dynamicImport 오류 == ', error);
+  //   }
+
+
+  // }
+
+
   useEffect(() => {
     fnc_getFileList();
   }, []) // 컴포넌트 마운트 시 한 번 실행
 
 
   return (
-      <TransitionGroup>
-        <CSSTransition key={location.pathname} classNames="page" timeout={700}>
-          {/* classNames 로 적용해야 css 에서 class 명을 찾을 수 있다. className 이 아님. s가 붙었는지 확인하기. */}
-          <Routes>
-            <Route path="/moduleviewer_build" element={<ModuleviewerMain pgList={fileList} />} />
-          </Routes>
-        </CSSTransition>
-      </TransitionGroup>
+    <TransitionGroup>
+      <CSSTransition key={location.pathname} classNames="page" timeout={700}>
+        {/* classNames 로 적용해야 css 에서 class 명을 찾을 수 있다. className 이 아님. s가 붙었는지 확인하기. */}
+        <Routes>
+          <Route path="/moduleviewer_build" element={<ModuleviewerMain pgList={fileList} />} />
+        </Routes>
+      </CSSTransition>
+    </TransitionGroup>
   );
 }
 

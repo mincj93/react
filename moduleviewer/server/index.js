@@ -1,9 +1,17 @@
 const express = require('express');
+const cors = require('cors');
 
 const fruitComponentPath = '../fruit/src/pages';
 var fs = require('fs');
 
 const app = express();
+
+
+// CORS 미들웨어 추가
+app.use(cors());
+
+
+
 const lg = console.log;
 
 app.use(express.static('C:/Users/woori/Desktop/M/react/moduleviewer/server/build'));

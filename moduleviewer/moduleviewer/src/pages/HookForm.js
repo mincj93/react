@@ -27,7 +27,7 @@ function HookForm() {
         />
         <input type="submit" />
       </form>
-      {erros && <h1>{error?.username?.message}</h1>}
+      {/* {errors && <h1>{error?.username?.message}</h1>} */}
     </div>
   );
 }
