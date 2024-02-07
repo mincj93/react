@@ -1,7 +1,7 @@
 import { MongoClient } from 'mongodb';
 
 const id = encodeURIComponent('mincj93');
-const pw = encodeURIComponent('AlsCkd!@34');
+const pw = encodeURIComponent('AlsCkd!@34');  // 아이디 패스워드는 encodeURIComponent 를 사용해서 변환해야함.
 const uri = process.env.MONGODB_URI;
 const options = {
   useNewUrlParser: true,
