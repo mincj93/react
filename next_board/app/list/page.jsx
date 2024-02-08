@@ -13,15 +13,19 @@ export default async function List() {
 
     return (
         <div className="list-bg">
-            {result.map((res, i) => {
+            {
+                result.map((res, i) => {
 
-                return (
-                    <div className="list-item">
-                        <Link href={'/detail/' + result[i]._id}><h4>{res.title}</h4><p>1월 1일</p></Link>
+                    return (
+                        <div className="list-item">
+                            <Link href={'/detail/' + result[i]._id}>{result[i].title}</Link><br></br>
+                            <Link href={'/edit/' + result[i]._id} className="list-btn">수정✏️</Link>
+                        </div>
+                    );
+                })
+            }
 
-                    </div>
-                );
-            })}
+
         </div>
     )
 }
