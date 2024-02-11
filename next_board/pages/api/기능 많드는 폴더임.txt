@@ -1,0 +1,3 @@
+pages\api 폴더경로에
+
+기능명.js 파일을 만들어서 export default 하면 사용가능

@@ -39,6 +39,22 @@ http://localhost:3000/List
 두 개 주소 모두 list 페이지로 연결시켜준다.
 
 
+이미지
+public 폴더 안에 넣고 저장한다.
+<img src="경로"></img> 태그를 사용한다.
+경로는 public 폴더에 존재하는 파일이라면 (apple.png)
+<img src="/apple.png" /> 를 주면 된다.
+그냥 /파일명.확장자 를 쓸 수 있는 이유??? >> 빌드하면 public 폴더는 루트경로로 이동하게되므로 /apple.png 라고 써도 인식함.
+※ 이미지 최적화 하기
+lazy loading, 사이즈 최적화 하기.
+layout shift 현상 막아주기 >> layout shift 라는 것은 이미지 로딩이 느리게 되어서 사이트 레이아웃이 밀려나는 현상.
+방법
+1. img 태그 대신 <Image> 태그를 사용하기.
+2. Image 태그를 사용하면서 이미지의 경로를 작성할 땐 반드시 import 로 이미지를 변수로 가져와서 넣어줘야함.
+☆주의☆ 
+1. img태그처럼 그냥 막 집어넣으면 안됨. 반드시 import 로 이미지를 변수로 가져와서 넣어주자.
+2. 외부사이트 이미지를 넣어야하면 반드시 width height 속성을 함께 써넣어줘야함. 필수임. 그리고 next.config.js 파일에 세팅도 해야함.
+
 
 
 
@@ -47,14 +63,16 @@ http://localhost:3000/List
 일반적인 next.js 형식으로 만드는 컴포넌트
 보통 큰 페이지를 만들 때 레이아웃 잡는 느낌으로 만든다.
 기능이 없으므로 로딩이 빠르다.
+useState, useEffect 등의 기능 사용불가.
 
 차이점 1) 서버컴포넌트에는 자바스크립트 기능을 넣을 수 없음. (html에 자바스크립트 기능넣기가 안되는 것과 동일한 원리)
 
 2. ★ 클라이언트 컴포넌트
 해당 컴포넌트 최상단 라인에 'use client' 라고 써주면 클라이언트 컴포넌트가 된다.
-따옴표로 감싼거까지 써줘야한다.
+따옴표까지 써줘야한다.
+'use client' 를 선언해줘야만 useState, useEffect 등의 기능을 사용할 수 있음.
+즉, useState, useEffect 등의 기능들을 쓰는 컴포넌트들에만 'use client' 를 선언해주자.(보통 기능이 들어갈 컴포넌트만 따로 빼서 만든다.)
 
-보통 기능이 들어갈 컴포넌트만 따로 빼서 만든다.
 
 
 
@@ -73,3 +91,15 @@ pages/api/testFunc.js 형식으로 되어있다면? >> http://localhost:3000/api
 2-1) form 태그를 이용해서 action 속성에 값을 주고
 2-2) method 속성에 'POST' 값을 할당해야함.
 
+
+
+export 관련 지식
+let age = 20;
+let name = 'mincj';
+1. export default 는 1파일에 1개만 사용 가능하다. 1개의 객체만 내보낼 때 쓴다.
+ex) export default age;
+만약 객체 여러개를 내보내고 싶다면?
+2. default 를 빼고 export {객체명, 객체명} 해줘야함 
+ex) export {age, name}
+또한 여러 객체를 내보냈다면 import 하는 페이지에서 내보낸 변수명을 그대로 사용해야한다.
+ex) import {age, name} from './경로/파일명.js'
