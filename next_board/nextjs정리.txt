@@ -103,3 +103,6 @@ ex) export default age;
 ex) export {age, name}
 또한 여러 객체를 내보냈다면 import 하는 페이지에서 내보낸 변수명을 그대로 사용해야한다.
 ex) import {age, name} from './경로/파일명.js'
+
+
+경로 써줄 때 @/util/database.js 이렇게 @/ 로 시작하면 "루트경로"에서 util 폴더찾고 그 안에 database 파일 찾아라~ 하는 뜻임.

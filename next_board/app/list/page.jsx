@@ -2,7 +2,7 @@ import { connectDB } from "@/util/database.js"
 import Link from "next/link";
 
 
-export default async function List() {
+async function List() {
 
     const lg = console.log;
 
@@ -29,3 +29,5 @@ export default async function List() {
         </div>
     )
 }
+
+export default List;

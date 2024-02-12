@@ -1,4 +1,4 @@
-import { connectDB } from "../util/database.js"
+import { connectDB } from "@/util/database.js"
 
 export default async function Home() {
   let client = await connectDB();

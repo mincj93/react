@@ -8,6 +8,7 @@ const options = {
   useUnifiedTopology: true,
 };
 
+
 export async function connectDB() {
   const client = new MongoClient(`mongodb+srv://${id}:${pw}@cluster0.9hoz7cs.mongodb.net/?retryWrites=true&w=majority`, options);
   await client.connect();

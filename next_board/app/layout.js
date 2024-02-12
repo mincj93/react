@@ -13,10 +13,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Link href="/list">List</Link>
-        <Link href="/rite">Write</Link>
+        <div className="navbar">
+          <Link href="/" className="logo">Appleforum</Link>
+          <Link href="/list">List</Link>
+        </div>
         {children}
-        </body>
+      </body>
     </html>
   );
 }
