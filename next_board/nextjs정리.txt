@@ -28,6 +28,7 @@ localhost:3000 페이지 즉, 테스트화면을 실행시키고 싶으면 npm r
 라우팅
 > 자동 라우팅 기능이 있기 때문에 파일, 폴더 하나만 만들면 라우팅이 자동으로 된다.
 > app 폴더 안에 폴더를 하나 만들어주고 보여줄 페이지를 만들어주자.
+> 페이지 내에서 export default 를 사용해서 함수를 내보내는데, 함수의 이름은 관계없음. 그저 파일명이 page.js 이기만 하면 된다.
 ex) app > list > page.jsx
 보여줄 페이지 명은 반드시 "page.jsx" 로 만들어야한다. 다른 파일명은 안된다.
 보여줄 파일의 확장자는 JSX 로 해주자.
@@ -37,6 +38,23 @@ app > list > page.js 이런식으로 만들었다면, 폴더명으로 주소창�
 http://localhost:3000/list
 http://localhost:3000/List
 두 개 주소 모두 list 페이지로 연결시켜준다.
+
+
+다이나믹 라우팅
+NEXT.JS 에서는 폴더경로가 주소가 된다.
+ex) next_board 프로젝트에서 list\myBoard\page.js 이런 경로로 page.js 가 있다면
+주소창에 list\myBoard 를 쳐주면 myBoard의 화면이 나온다.
+하지만 id 를 가진 게시물 상세조회 페이지는 id가 포함된 화면이 나와야함.
+따라서 next_board 프로젝트에서 list\myBoard\[id]\myPage.js 이렇게 폴더명을 대괄호까지 써주면서 "[id]" 라고 하면 id 자리에 값을 넣어서 페이지 이동이 가능.
+주소창에 list\myBoard\12 를 치면 myPage 화면이 로드된다.
+> 그렇다면 id 에 넣어준 값을 가져오려면?
+export default async function myPage(props){ 1. 컴포넌트함수 개매변수로 props를 받는다
+    2. props.params.폴더지정명; 으로 가져올 수 있다.(현재 폴더명은 [id].)
+    let urlID = props.params.id; // url 에 사용자가 입력한 값
+    폴더명이 [pgNum] 으로 되어있다면
+    let urlID = props.params.pgNum; 
+}
+
 
 
 이미지
