@@ -1,0 +1,21 @@
+.droppable-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.draggable-item {
+    background-color: #f0f0f0;
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    cursor: grab;
+}
+
+.draggable-item:hover {
+    background-color: #e0e0e0;
+}
+
+.draggable-item:active {
+    cursor: grabbing;
+}
