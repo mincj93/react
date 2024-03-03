@@ -4,6 +4,10 @@ const Popup = () => {
     const [actionModal, setActionModal] = useState(false);
     const node = useRef();
 
+    const bgColor = {
+        backgroundColor: actionModal ? 'gray' : ''
+    }
+
     useEffect(() => {
         const clickOutside = (e) => {
             // 모달이 열려 있고 모달의 바깥쪽을 눌렀을 때 창 닫기
@@ -21,13 +25,15 @@ const Popup = () => {
     }, [actionModal]);
 
     return (
-        <div ref={node}>
+        <div ref={node} style={bgColor}>
             <div>
                 <button onClick={() => setActionModal((pre) => !pre)}>모달생성</button>
             </div>
-            {actionModal ? (
-                <Modal />
-            ) : null}
+            {
+                actionModal ? (
+                    <Modal />
+                ) : null
+            }
         </div>
     )
 }
@@ -37,7 +43,7 @@ const Modal = (props) => {
     return (
         <div
             style={{
-                position: "fixed",
+                position: "absolute",
                 backgroundColor: "white",
                 width: "150px",
                 padding: "0.625rem",
