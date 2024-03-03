@@ -43,7 +43,6 @@ const Modal = (props) => {
                 padding: "0.625rem",
                 border: "1px solid grey",
                 zIndex: 10,
-                borderRadius: "4px",
             }}
         >
             <div className="p-10">action sheet</div>
