@@ -3,6 +3,8 @@ import logo from './logo.svg';
 import './App.css';
 import { Button, Navbar, Container, Nav } from 'react-bootstrap'
 import data from './data';
+import { Link, Route, Routes } from 'react-router-dom';
+import Detail from './routes/Detail';
 
 
 function App() {
@@ -10,27 +12,42 @@ function App() {
   let [shoes] = useState(data);
 
   return (
-    <div>
-      <Navbar bg="dark" variant="dark">
-        <Container>
-          <Navbar.Brand href="#home">Navbar</Navbar.Brand>
-          <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#features">Features</Nav.Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
-          </Nav>
-        </Container>
-      </Navbar>
-
-      <div className="container">
-        <div className="row">
-          <Card shoes={shoes[0]} i={1} />
-          <Card shoes={shoes[1]} i={2} />
-          <Card shoes={shoes[2]} i={3} />
-        </div>
+    <>
+      <div className='App'>
+        <Navbar bg="dark" variant="dark">
+          <Container>
+            <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+            <Nav className="me-auto">
+              <Nav.Link href="#home">Home</Nav.Link>
+              <Nav.Link href="#features">Features</Nav.Link>
+              <Nav.Link href="#pricing">Pricing</Nav.Link>
+            </Nav>
+          </Container>
+        </Navbar>
       </div>
-    </div>
 
+
+
+      <Link to={'/'}>홈으로</Link>
+      <Link to={'/detail'}>detail</Link>
+
+
+      <Routes>
+        <Route path="/" element={
+          <>
+            <div className="main-bg"></div>
+            <div className="container">
+              <div className="row">
+                {shoes.map((a, i) => {
+                  return <Card shoes={shoes[i]} i={i} key={i} ></Card>
+                })}
+              </div>
+            </div>
+          </>
+        } />
+        <Route path='/detail/:id' element={<Detail shoes={shoes} />} />
+      </Routes>
+    </>
   );
 }
 
