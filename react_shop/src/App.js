@@ -31,7 +31,9 @@ function App() {
       <Link to={'/'}>홈으로</Link>
       <Link to={'/detail'}>detail</Link>
 
+ 
 
+ 
       <Routes>
         <Route path="/" element={
           <>
