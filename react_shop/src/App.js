@@ -5,11 +5,12 @@ import { Button, Navbar, Container, Nav } from 'react-bootstrap'
 import data from './data';
 import { Link, Route, Routes } from 'react-router-dom';
 import Detail from './routes/Detail';
-
+import Cart from './routes/Cart';
+import axios from 'axios';
 
 function App() {
 
-  let [shoes] = useState(data);
+  let [shoes, setShoes] = useState(data);
 
   return (
     <>
@@ -18,22 +19,15 @@ function App() {
           <Container>
             <Navbar.Brand href="#home">Navbar</Navbar.Brand>
             <Nav className="me-auto">
-              <Nav.Link href="#home">Home</Nav.Link>
-              <Nav.Link href="#features">Features</Nav.Link>
+              <Nav.Link href="/">Home</Nav.Link>
+              <Nav.Link href="/detail/1">1상품</Nav.Link>
+              <Nav.Link href="/cart">Cart</Nav.Link>
               <Nav.Link href="#pricing">Pricing</Nav.Link>
             </Nav>
           </Container>
         </Navbar>
       </div>
 
-
-
-      <Link to={'/'}>홈으로</Link>
-      <Link to={'/detail'}>detail</Link>
-
- 
-
- 
       <Routes>
         <Route path="/" element={
           <>
@@ -48,7 +42,19 @@ function App() {
           </>
         } />
         <Route path='/detail/:id' element={<Detail shoes={shoes} />} />
+        <Route path='/cart' element={<Cart />} />
       </Routes>
+
+
+      <button onClick={() => {
+        axios.get('https://codingapple1.github.io/shop/data2.json').then((결과) => {
+          let copy = [...shoes, ...결과.data]
+          setShoes(copy)
+        })
+          .catch(() => {
+            console.log('실패함')
+          })
+      }}>버튼</button>
     </>
   );
 }
