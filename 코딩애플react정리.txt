@@ -772,7 +772,7 @@ ex)
 
 3-2. 사용할 컴포넌트에 가서 import { useSelector } from 'react-redux'; 선언
 3-3. useSelector 함수를 사용해서 저장한 state 사용
-let a = useSelector((state)=>{ return state })   // 기본 모양
+let a = useSelector((state)=>{ return state })   // 기본 모양. a 안에는 import 를 통해 가져온 state 의 모든 값이 있다.
 lg(a);
 lg(a.user);
 
@@ -812,7 +812,7 @@ export let {changeName, additionalFunction} = user.actions;
 
 3) 컴포넌트로 이동해서 useDispatch() 선언해주기
     import { useDispatch, useSelector } from 'react-redux'; // 가져오고
-    함수안에 let dispatch = useDispatch(); 선언
+    컴포넌트 안에 let dispatch = useDispatch(); 선언
 
 4) dispatch를 사용해서 함수 호출하기
 dispatch(함수명())
@@ -830,7 +830,7 @@ let 변수명 = createSlice({
   initialState : 초기화값,
   reducers : {    //state 변경함수들 모아두는 자리
     변수명(param1, param2){    // param1 은 기존 state의 값을 가지고있음. param2 는 param2.payload 하면 보내준 파라미터값 볼 수 있음
-      state.age += a.payload
+      state.age += param2.payload
     }
   }
 }) 
