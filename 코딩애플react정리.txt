@@ -709,25 +709,27 @@ return 값으로 원하는 div 를 주면 된다.
 props 없이 state를 공유할 수 있게 도와주는 라이브러리. 
 props 전송이 귀찮을 때 사용한다. 컴포넌트가 많아질수록 쓰기 좋다. 
 state 값을 props 없이 공유하기 위해서 사용한다.
+redux toolkit이라는 라이브러리 = redux의 개선버전이라고 보면 됩니다. 문법이 좀 더 쉬워짐 
 즉 Redux 라는 자바스크립트 바구니가 state를 모두 다 가지고 있어서 필요할 때 빼서 쓰면 되는것.
 >> state를 모아서 가지고 있을 js파일은 따로 개발자가 만들어줘야함.
 
 1. 설치
-★★★주의★★★
+★★★★★★★★★★★★주의★★★★★★★★★★★★
 "react", "react-dom" 버젼이 18.1 이상이어야만 사용가능.
 
 설치명령어
 npm i @reduxjs/toolkit react-redux
 
 2. 세팅하기
-    2-1. 바구니역할 js 파일 생성
-    2-2. import { configureStore } from "@reduxjs/toolkit";
+    2-1. 바구니역할 js 파일 생성 (아무데나 생성하면 됨)
+    2-2. import { configureStore } from "@reduxjs/toolkit"; 선언
     2-3.
-        export default configureStore({
-            reducer: {
+         export default configureStore({
+             reducer: {
 
-            }
-        });
+             }
+         });
+         입력
     2-4. index.js 에 가서 
         import { Provider } from 'react-redux'; 선언하고
         import 작명 from './바구니역할js'; 바구니역할 js 가져오는 import 선언하고
@@ -749,6 +751,7 @@ let 변수명 = createSlice({
     })
 
 ex)
+    ** createSlice() 는 useState() 와 용도가 비슷 **
     let user = createSlice({           // useState 같은 역할
         name : 'user',
         initialState : 'kim'

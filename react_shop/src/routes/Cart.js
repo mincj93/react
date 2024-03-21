@@ -1,7 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Table } from 'react-bootstrap';
 
-const Detail = (props) => {
+import { useSelector } from "react-redux"
+
+const Cart = () => {
+
+    let state = useSelector((state) => {
+        console.log(state)
+        return state;
+    })
+
 
     return (
         <Table>
@@ -14,15 +22,22 @@ const Detail = (props) => {
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>안녕</td>
-                    <td>안녕</td>
-                    <td>안녕</td>
-                </tr>
+                {
+                    state.cart.map(function (a, i) {
+                        return (
+                            <tr key={i}>
+                                <td>1</td>
+                                <td>{state.cart[i].name}</td>
+                                <td>{state.cart[i].count}</td>
+                                <td>안녕</td>
+                            </tr>
+                        )
+                    })
+                }
+
             </tbody>
         </Table>
     );
 }
 
-export default Detail;
+export default Cart;
