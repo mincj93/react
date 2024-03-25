@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Table, Button } from 'react-bootstrap';
 
 import { useDispatch, useSelector } from "react-redux";
-import { fnc_changeName, addCount, minCount, deleteList } from "../store";
+import { increase, addCount, minCount, deleteList } from "../store";
 
 const Cart = () => {
     const dispatch = useDispatch();
@@ -58,7 +58,7 @@ const Cart = () => {
             </Table>
 
             <button onClick={() => {
-                dispatch(fnc_changeName())
+                dispatch(increase())
             }}>버튼임</button>
 
         </>

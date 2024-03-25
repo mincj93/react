@@ -1,19 +1,9 @@
 import { configureStore, createSlice } from '@reduxjs/toolkit';
+import userSlice from './store/userSlice';
 
 const lg = console.log;
 
-let user = createSlice({
-    name: 'user',
-    initialState: 'kim',
-    reducers: {
-        fnc_changeName(state) {
-            lg(`redux fnc_changeName state = ${state}`);
-            return 'john ' + state;
-        },
-    },
-});
-
-export let { fnc_changeName } = user.actions;
+export let { increase } = userSlice.actions;
 
 let cart = createSlice({
     // useState의 이름(name) 과 초기화값(initialState) 을 정의
@@ -45,7 +35,7 @@ export let { addCount, minCount, deleteList } = cart.actions;
 export default configureStore({
     // 생성한 리덕스state 등록 및 export
     reducer: {
-        user: user.reducer,
+        user: userSlice.reducer,
         cart: cart.reducer,
     },
 });
