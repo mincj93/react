@@ -83,6 +83,30 @@ useState 의 값이 변경되면 해당 html이 재랜더링(자동바뀜)된다
 let [a,b] = useState(['남자 코트 추천' , '강남 우동맛집' , '파이썬독학']);
 사용은 {a[0]} , {a[1]}, {a[2]} 이렇게 쓰면 됨
 
+// 수석님 팁
+// react 에서 state를 변경할 때 사용할 함수.
+// 일반 state 변경
+const stateSet = (key, val) => {
+const newState = {};
+newState[key] = val;
+setState((prevState) => ({ ...prevState, ...newState }));
+};
+
+// stateSet 사용하기
+detailData[key] = val;
+sSet('detailData', detailData);
+
+// state 에 object 형이 있을경우 변경
+// object state의 이름 : detailData
+const dSet = (key, val) => {
+detailData[key] = val;
+setState((prevState) => ({ ...prevState, detailData: detailData }))
+}
+
+// dSet 사용하기
+dSet('key', value);
+
+
 --------------------------------------------------------------------------------------------------
 
 Destructuring 문법
