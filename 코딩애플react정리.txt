@@ -84,15 +84,15 @@ let [a,b] = useState(['남자 코트 추천' , '강남 우동맛집' , '파이�
 사용은 {a[0]} , {a[1]}, {a[2]} 이렇게 쓰면 됨
 
 // 수석님 팁
-// react 에서 state를 변경할 때 사용할 함수.
-// 일반 state 변경
+// react 에서 object형 state를 변경할 때 사용할 함수.
+// 1. object state 의 특정 속성만 변경할 때
 const stateSet = (key, val) => {
 const newState = {};
 newState[key] = val;
 setState((prevState) => ({ ...prevState, ...newState }));
 };
 
-// stateSet 사용하기
+// 1번의 stateSet 사용하기
 detailData[key] = val;
 sSet('detailData', detailData);
 
